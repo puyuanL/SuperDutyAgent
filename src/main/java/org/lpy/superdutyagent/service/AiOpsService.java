@@ -48,7 +48,9 @@ public class AiOpsService {
      * @return 分析结果状态
      * @throws GraphRunnerException 如果 Agent 执行失败
      */
-    public Optional<OverAllState> executeAiOpsAnalysis(DashScopeChatModel chatModel, ToolCallback[] toolCallbacks) throws GraphRunnerException {
+    public Optional<OverAllState> executeAiOpsAnalysis(DashScopeChatModel chatModel, ToolCallback[] toolCallbacks)
+            throws GraphRunnerException {
+
         logger.info("开始执行 AI Ops 多 Agent 协作流程");
 
         // 构建 Planner 和 Executor Agent

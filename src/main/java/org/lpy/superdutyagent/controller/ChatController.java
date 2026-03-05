@@ -302,7 +302,9 @@ public class ChatController {
 
                 ToolCallback[] toolCallbacks = tools.getToolCallbacks();
 
-                emitter.send(SseEmitter.event().name("message").data(SseMessage.content("正在读取告警并拆解任务...\n")));
+                emitter.send(SseEmitter.event()
+                        .name("message")
+                        .data(SseMessage.content("正在读取告警并拆解任务...\n")));
                 
                 // 调用 AiOpsService 执行分析流程
                 Optional<OverAllState> overAllStateOptional = aiOpsService.executeAiOpsAnalysis(chatModel, toolCallbacks);
