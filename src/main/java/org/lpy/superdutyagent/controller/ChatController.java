@@ -22,12 +22,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import reactor.core.publisher.Flux;
+import reactor.core.scheduler.Schedulers;
 
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -148,7 +150,9 @@ public class ChatController {
         if (request.getQuestion() == null || request.getQuestion().trim().isEmpty()) {
             logger.warn("问题内容为空");
             try {
-                emitter.send(SseEmitter.event().name("message").data(SseMessage.error("问题内容不能为空"), MediaType.APPLICATION_JSON));
+                emitter.send(SseEmitter.event()
+                        .name("message")
+                        .data(SseMessage.error("问题内容不能为空"), MediaType.APPLICATION_JSON));
                 emitter.complete();
             } catch (IOException e) {
                 emitter.completeWithError(e);

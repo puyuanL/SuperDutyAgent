@@ -31,18 +31,18 @@ spring:
     
     # Spring AI MCP 客户端配置
     # 如果使用mock数据，请注释这部分内容
-    mcp:
-      client:
-        enabled: true
-        name: tencent-mcp-server
-        version: 1.0.0
-        request-timeout: 60s
-        type: ASYNC
-        sse:
-          connections:
-            tencent-cls:
-              url: https://mcp-api.tencent-cloud.com
-              sse-endpoint: /sse/bfa7adcdeef174a7  # 完整的SSE端点路径
+#    mcp:
+#      client:
+#        enabled: true
+#        name: tencent-mcp-server
+#        version: 1.0.0
+#        request-timeout: 60s
+#        type: ASYNC
+#        sse:
+#          connections:
+#            tencent-cls:
+#              url: https://mcp-api.tencent-cloud.com
+#              sse-endpoint: /sse/bfa7adcdeef174a7
   servlet:
     encoding:
       charset: UTF-8
@@ -71,7 +71,7 @@ rag:
 prometheus:
   base-url: http://localhost:9090
   timeout: 10  # 超时时间（秒）
-  mock-enabled: false  # 是否启用 Mock 模式（用于测试）
+  mock-enabled: true  # 是否启用 Mock 模式（用于测试）
 
 # CLS 云日志服务配置
 cls:

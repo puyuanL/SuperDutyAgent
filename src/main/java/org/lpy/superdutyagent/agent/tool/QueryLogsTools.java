@@ -130,23 +130,22 @@ public class QueryLogsTools {
             return "{\"success\":false,\"message\":\"获取日志主题列表失败: " + e.getMessage() + "\"}";
         }
     }
-    
+
+    // 有效地域列表
+    private static final List<String> VALID_REGIONS = List.of(
+            "ap-guangzhou", "ap-shanghai", "ap-beijing", "ap-chengdu"
+    );
+    private static final String DEFAULT_REGION = "ap-guangzhou";
+
     /**
      * 查询日志
      * 从云日志服务查询指定条件的日志
-     * 
+     *
      * @param region 地域，如 ap-guangzhou
      * @param logTopic 日志主题，如 system-metrics, application-logs
      * @param query 查询条件，如 level:ERROR OR cpu_usage:>80
      * @param limit 返回的日志条数，默认20条
      */
-    // 有效地域列表
-    private static final List<String> VALID_REGIONS = List.of(
-            "ap-guangzhou", "ap-shanghai", "ap-beijing", "ap-chengdu"
-    );
-
-    private static final String DEFAULT_REGION = "ap-guangzhou";
-    
     @Tool(description = "Query logs from Cloud Log Service (CLS). " +
             "Use this tool to search application logs, system metrics, and other log data. " +
             "IMPORTANT: Before calling this tool, you should call getAvailableLogTopics to understand what log topics are available. " +

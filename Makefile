@@ -10,10 +10,10 @@ DOCKER_COMPOSE_FILE = vector-database.yml
 MILVUS_CONTAINER = milvus-standalone
 
 # 颜色输出
-GREEN = \033[0;32m
-YELLOW = \033[0;33m
-RED = \033[0;31m
-NC = \033[0m # No Color
+RED     := $(shell echo -e "\033[0;31m")
+YELLOW  := $(shell echo -e "\033[0;33m")
+GREEN   := $(shell echo -e "\033[0;32m")
+NC      := $(shell echo -e "\033[0m")
 
 .PHONY: help init start stop restart check upload clean up down status wait
 
