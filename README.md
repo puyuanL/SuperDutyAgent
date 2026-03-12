@@ -2,6 +2,10 @@
 
 > 基于 Spring Boot + AI Agent 的智能问答与运维系统
 
+## ⚖演示视频
+
+![f4e5e05192bff2c09adc4cf75cbb6d7c](./assets/f4e5e05192bff2c09adc4cf75cbb6d7c.gif)
+
 ## 📖 项目简介
 
 企业级智能业务代理系统，包含两大核心模块：
@@ -175,6 +179,7 @@ http://localhost:9900
 ```
 
 **命令行**
+
 ```bash
 # 上传文档
 curl -X POST http://localhost:9900/api/upload \
@@ -188,8 +193,3 @@ curl -X POST http://localhost:9900/api/chat \
 # 健康检查
 curl http://localhost:9900/milvus/health
 ```
-
-
-**版本**: v1.0.0  
-**作者**: chief  
-**许可证**: MIT

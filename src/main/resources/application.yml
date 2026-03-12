@@ -22,6 +22,10 @@ spring:
       chat:
         options:
           timeout: 180000  # 超时时间180秒（3分钟）
+#      # 重排模型
+#      rerank:
+#        options:
+#          model: gte-rerank
       retry:
         max-attempts: 3  # 最大重试次数
         backoff:
