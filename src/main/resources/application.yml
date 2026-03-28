@@ -14,6 +14,8 @@ milvus:
   database: default
   timeout: 10000
 
+model: "qwen3-max"  # 大语言模型名称
+
 # Spring AI Alibaba DashScope 配置
 spring:
   ai:
@@ -22,10 +24,12 @@ spring:
       chat:
         options:
           timeout: 180000  # 超时时间180秒（3分钟）
-#      # 重排模型
-#      rerank:
-#        options:
-#          model: gte-rerank
+      # 重排模型
+      rerank:
+        top-n: 5
+        options:
+          model: gte-rerank
+          top-n: 5
       retry:
         max-attempts: 3  # 最大重试次数
         backoff:
@@ -68,8 +72,7 @@ document:
 
 # RAG 配置
 rag:
-  top-k: 3  # 检索返回的最相似文档数量
-  model: "qwen3-max"  # 大语言模型名称
+  top-k: 15  # 向量检索返回的最相似文档数量（重排前）
 
 # Prometheus 配置
 prometheus:

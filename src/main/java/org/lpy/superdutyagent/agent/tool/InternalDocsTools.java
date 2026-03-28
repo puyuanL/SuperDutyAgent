@@ -26,8 +26,8 @@ public class InternalDocsTools {
     
     private final VectorSearchService vectorSearchService;
     
-    @Value("${rag.top-k:3}")
-    private int topK = 3; // 默认值
+    @Value("${rag.top-k}")
+    private int topK; // 默认值
     
     private final ObjectMapper objectMapper = new ObjectMapper();
     
